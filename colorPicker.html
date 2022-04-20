@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+    <style>
+        .red{
+            background-color:red;
+        }
+        .green{
+            background-color:green;
+        }
+        .blue{
+            background-color:blue;
+        }
+        .pink{
+            color:pink;
+        }
+        .teal{
+            color:teal;
+        }
+        .purple{
+            color:purple;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Aliquam ut porttitor leo a diam sollicitudin tempor id.
+            Accumsan in nisl nisi scelerisque eu ultrices. Scelerisque
+            viverra mauris in aliquam sem. Est ullamcorper eget nulla
+            facilisi. Ullamcorper dignissim cras tincidunt lobortis
+            feugiat vivamus at augue. Malesuada pellentesque elit
+            eget gravida cum. Pretium fusce id velit ut tortor
+            pretium viverra. Magna etiam tempor orci eu lobortis
+            elementum nibh. Congue nisi vitae suscipit tellus.
+            Porttitor leo a diam sollicitudin tempor id eu.
+            Duis convallis convallis tellus id interdum velit laoreet
+            id. Tincidunt nunc pulvinar sapien et ligula ullamcorper
+            malesuada proin libero. Vitae tortor condimentum lacinia quis.
+            Semper risus in hendrerit gravida. Nisi scelerisque eu
+            ultrices vitae. Placerat vestibulum lectus mauris ultrices eros in. </p>
+        <div class="row">
+            <h3>Background</h3>
+            <button id="1">RED</button>
+            <button id="2">GREEN</button>
+            <button id="3">BLUE</button>
+        </div>
+        <div class="row">
+            <h3>Text</h3>
+            <button id="4">PINK</button>
+            <button id="5">TEAL</button>
+            <button id="6">PURPLE</button>
+        </div>
+        <button id="clear">CLEAR</button>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    const red = document.getElementById('1');
+    const green = document.getElementById('2');
+    const blue = document.getElementById('3');
+
+    const pink = document.getElementById('4');
+    const teal = document.getElementById('5');
+    const purple = document.getElementById('6');
+
+    const clearButton = document.getElementById('clear')
+
+    red.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('red');
+    });
+
+    green.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('green');
+    });
+
+    blue.addEventListener('click', function(e){
+        removeBGColor();
+        content.classList.add('blue');
+    });
+
+    pink.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('pink');
+    });
+
+    teal.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('teal');
+    });
+
+    purple.addEventListener('click', function(e){
+        removeTextColor();
+        content.classList.add('purple');
+    });
+
+    clearButton.addEventListener('click', function(e){
+        removeTextColor();
+        removeBGColor();
+    });
+
+    function removeBGColor(){
+        content.classList.remove('red');
+        content.classList.remove('green');
+        content.classList.remove('blue');
+    }
+
+    function removeTextColor(){
+        content.classList.remove('pink');
+        content.classList.remove('teal');
+        content.classList.remove('purple');
+    }
+</script>
+</body>
+</html>
