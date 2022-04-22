@@ -13,9 +13,34 @@
     </div>
 </div>
 <script>
-    const student = document.querySelector('.content');
+    const content = document.querySelector('.content');
+    content.innerHTML = '<h1 class="gone">I love soccer</h1><h4>I love basketball</h4>';
 
-    content.innerHTML = '<h1>I love soccer</h1><h4>I love basketball</h4>';
+    const soccer = document.createElement('h1');
+    soccer.innerHTML = 'I love soccer';
+    content.appendChild(soccer);
+
+    const basketball = document.createElement('h4');
+    basketball.innerHTML = 'I love basketball';
+    content.appendChild(basketball);
+
+    const videoGames = document.createElement('h1');
+    videoGames.innerHTML = 'I love videoGames';
+    content.appendChild(videoGames);
+
+    const football = document.createElement('h3');
+    football.innerHTML = 'I like football';
+    content.appendChild(football);
+
+    const food = document.createElement('h1');
+    food.innerHTML = 'I love Pizza';
+    content.insertAdjacentElement('afterend', food);
+
+    const unwantedElement = document.querySelector('h4');
+    unwantedElement.remove();
+
+    const unwantedElement2 = document.querySelector('.gone');
+    unwantedElement2.remove();
 </script>
 </body>
 </html>
