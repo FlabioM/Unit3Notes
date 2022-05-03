@@ -14,19 +14,20 @@
         </div>
         <table>
             <thead>
-            <tr>
-                <th>
-                    Description
-                </th>
-                <th>
+                <tr>
+                    <th>
+                        Description
+                    </th>
+                    <th>
 
-                </th>
-            </tr>
+                    </th>
+                </tr>
             </thead>
             <tbody id="incomplete">
 
             </tbody>
         </table>
+        <p>---------------------------</p>
         <table >
             <thead>
                 <tr>
@@ -51,7 +52,7 @@
     const incomplete = document.getElementById('incomplete');
     const complete = document.getElementById('complete');
 
-    submitButton.addEventListener('click', function(e){
+    submitButton.addEventListener('click', function () {
         let toDoItem = item.value;
         addItemToIncompleteTable(toDoItem);
         item.value = "";
@@ -65,7 +66,7 @@
         let actionTag = document.createElement('td');
         let action = document.createElement('button');
         action.textContent = "Mark Complete";
-        action.addEventListener('click', funciton(){
+        action.addEventListener('click', function(){
             newRow.remove();
             addItemToCompleteTable(toDoItem);
         })
@@ -82,10 +83,30 @@
         let actionTag = document.createElement('td');
         let action = document.createElement('button');
         action.textContent = "Mark Incomplete";
-        action.addEventListener('click', funciton(){
+        action.addEventListener('click', function(){
             newRow.remove();
             addItemToIncompleteTable(toDoItem);
         })
+        actionTag.appendChild(action);
+        newRow.appendChild(actionTag);
+        complete.appendChild(newRow);
+    }
+
+    function addItemToBothTables(toDoItem){
+        let newRow = document.createElement('tr');
+        let descriptionTag = document.createElement('td');
+        descriptionTag.textContent = toDoItem;
+        newRow.appendChild(descriptionTag);
+        let actionTag = document.createElement('td');
+        let action = document.createElement('button');
+        action.textContent = "Mark Incomplete";
+        if (action.textContent === "Mark Incomplete"){
+                newRow.remove();
+                addItemToIncompleteTable(toDoItem);
+        } else{
+            newRow.remove();
+            addItemToCompleteTable(toDoItem);
+            }
         actionTag.appendChild(action);
         newRow.appendChild(actionTag);
         complete.appendChild(newRow);
