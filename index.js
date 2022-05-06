@@ -1,10 +1,14 @@
 const cardList = document.querySelector('.cardList');
 buildBoard();
 addCard('test');
+specialCard('extraCard');
 
+let intervalTwo = setInterval(function(){
+    specialCard( cardList.children.length + 1)
+}, 5000);
 let interval = setInterval(function(){
     addCard(cardList.children.length + 1)
-}, 400);
+}, 1000);
 
 cardList.addEventListener('click', function(e){
     console.log(e.target);
@@ -12,9 +16,8 @@ cardList.addEventListener('click', function(e){
         return
     }
     if (e.target.classList.contains('active')){
-        points +1;
-        ans.textContent = points(+1);
-        e.target.classList.remove('active');
+        point +=1;
+        points.innerHTML = `${point}`;
     }
     if (e.target.classList.contains('active')){
         e.target.classList.remove('active');
@@ -25,6 +28,15 @@ cardList.addEventListener('click', function(e){
     let children = cardList.children;
     if (children.length < 1){
         clearInterval(interval);
+        clearInterval(intervalTwo);
+    }
+    if (e.target.classList.contains('inactive')){
+        point +=2;
+        points.innerHTML = `${point}`;
+    }
+    if (e.target.classList.contains('extraCard')){
+        point += 5;
+        points.innerHTML = `${point}`;
     }
 });
 
@@ -41,5 +53,12 @@ function buildBoard(){
         addCard('starter');
     }
 }
+function specialCard(value){
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.classList.add('extraCard');
+    card.innerHTML = value;
+    cardList.appendChild(card);
+}
 
-let points = 0;
+let point = 0;
